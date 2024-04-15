@@ -1,5 +1,6 @@
 package tests;
 
+import driver.Driver;
 import org.testng.annotations.Test;
 
 public class SteamCases extends BaseTest {
