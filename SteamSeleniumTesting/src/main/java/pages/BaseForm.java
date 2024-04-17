@@ -1,13 +1,13 @@
 package pages;
 
-import elements.Label;
+import elements.TheUniqueElement;
 import waits.Waits;
 
 public abstract class BaseForm {
 
-    private final Label uniqueElement;
+    private final TheUniqueElement uniqueElement;
 
-    public BaseForm(Label uniqueElement){
+    public BaseForm(TheUniqueElement uniqueElement){
         this.uniqueElement = uniqueElement;
     }
 

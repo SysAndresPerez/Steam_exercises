@@ -1,17 +1,17 @@
 package pages;
 
-import elements.Button;
-import elements.Label;
+import elements.*;
 import org.openqa.selenium.By;
 
 public class MainPage extends BaseForm {
 
+    //The Unique Element or a Reference
     public MainPage(){
-        super(new Label(By.id("home_maincap_v7")));
+        super(new TheUniqueElement(By.id("home_maincap_v7")));
     }
 
     //Locators
-    private final Button loginBtn = new Button(By.className("global_action_link"));
+    private final Button loginBtn = new Button(By.xpath("//a[@class='global_action_link']"));
 
     //Methods
     public void clickLoginBtn(){

@@ -6,7 +6,7 @@ import waits.Waits;
 
 public abstract class BaseElement{
 
-    private By locator;
+    private final By locator;
 
     public BaseElement(By locator){
         this.locator = locator;
