@@ -9,8 +9,7 @@ import utils.RandomStringGenerator;
 
 public class SteamCases extends BaseTest {
 
-    @Test (priority=1)
-
+    @Test (priority = 1)
     public void invalidLogin(){
 
         MainPage mainPage = new MainPage();
@@ -38,5 +37,20 @@ public class SteamCases extends BaseTest {
 
         Assert.assertTrue(loginPage.isCheckerDisplay(), "The Checker is NOT displayed");
          */
+    }
+
+    @Test (priority = 2)
+    public void mostPlayedGames(){
+
+    }
+
+    @Test (priority = 3)
+    public void changeLanguages(){
+
+    }
+
+    @Test (priority = 4)
+    public void newsFilters(){
+
     }
 }
