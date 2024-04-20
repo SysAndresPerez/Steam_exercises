@@ -14,17 +14,20 @@ public class LoginPage extends BaseForm {
     //Locators - In this case, I changed the old locators because now steam only uses magic numbers. In the future, maybe I will change the locators.
     private final TextBox userTxtBox = new TextBox(By.xpath("(//input[@type='text'])[1]"));
     private final TextBox passTxtBox = new TextBox(By.xpath("//input[@type='password']"));
-    private final Button signBtn = new Button(By.xpath("//button[@type='submit']"));
-    private final Label errorMsg = new Label(By.xpath("//div[@class='_1Mcy9wnDnt1Q72FijsNtHC']"));
     private final TextBox codeTxtBox = new TextBox(By.xpath("//div[@class='responsive_page_frame with_header']//input[1]")); //Works differently ... I guess.
+
+    private final Button signBtn = new Button(By.xpath("//button[@type='submit']"));
+
+    private final Label errorMsg = new Label(By.xpath("//div[@class='_1Mcy9wnDnt1Q72FijsNtHC']"));
+
 
     //Methods
     public void typeUser(String user){
-        userTxtBox.sendKeys(user);
+        userTxtBox.clearAndType(user);
     }
 
     public void typePass(String pass){
-        passTxtBox.sendKeys(pass);
+        passTxtBox.clearAndType(pass);
     }
 
     public void clickSubmitBtn(){

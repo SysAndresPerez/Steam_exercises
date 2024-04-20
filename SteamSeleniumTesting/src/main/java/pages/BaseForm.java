@@ -11,7 +11,7 @@ public abstract class BaseForm {
         this.uniqueElement = uniqueElement;
     }
 
-    public boolean isPageDisplay(){
+    public boolean isItDisplay(){
         return Waits.waitForElementToBeDisplayed(uniqueElement);
     }
 }
