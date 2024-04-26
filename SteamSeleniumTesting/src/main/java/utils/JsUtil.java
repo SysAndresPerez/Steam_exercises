@@ -6,9 +6,9 @@ import org.openqa.selenium.JavascriptExecutor;
 
 public class JsUtil {
 
-    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+    private final static JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
-    public void scrollToFindElement(BaseElement element){
+    public static void scrollToFindElement(BaseElement element){
         js.executeScript("arguments[0].scrollIntoView();", element.getElement());
     }
 }

@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Waits {
     protected static WebDriverWait expWait;
@@ -32,5 +33,9 @@ public class Waits {
 
     public static WebElement waitToBeClickable(Button locator){
         return getWait().until(ExpectedConditions.elementToBeClickable(locator.getElement()));
+    }
+
+    public static List<WebElement> waitForElementsToBePresent(By locator) {
+        return getWait().until(webDriver -> webDriver.findElements(locator));
     }
 }

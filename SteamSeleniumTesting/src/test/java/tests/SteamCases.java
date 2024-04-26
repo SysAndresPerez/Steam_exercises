@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 import utils.RandomStringGenerator;
+import utils.inOtherTab;
 
 public class SteamCases extends BaseTest {
 
@@ -61,12 +62,25 @@ public class SteamCases extends BaseTest {
     }
 
     @Test (priority = 3)
-    public void changeLanguages(){
+    public void changePrivacyLanguages(){
 
         MainPage mainPage = new MainPage();
 
         Assert.assertTrue(mainPage.isItDisplay(), "The Main Page is NOT displayed");
 
+        mainPage.scrollUntilFindPrivacyBtn();
+        mainPage.clickPrivacyBtn();
+
+        PrivacyPage privacyPage = new PrivacyPage();
+
+        Assert.assertTrue(privacyPage.isItDisplay(), "The Privacy Page is NOT displayed");
+
+        inOtherTab.handleTheOtherTab();
+
+        privacyPage.changeThePrivacyPolicyLanguage();
+        privacyPage.scrollToFindSignature202X();
+
+        Assert.assertTrue(privacyPage.isSignature202XDisplayed(),"The Signature of The Year is NOT Displayed");
 
     }
 

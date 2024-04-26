@@ -1,7 +1,9 @@
 package pages;
 
+import actions.ActionsUtil;
 import elements.*;
 import org.openqa.selenium.By;
+import utils.JsUtil;
 
 public class MainPage extends BaseForm {
 
@@ -17,6 +19,11 @@ public class MainPage extends BaseForm {
     //Methods
     public void clickLoginBtn(){
         loginBtn.click();
+    }
+
+    public void scrollUntilFindPrivacyBtn(){
+        ActionsUtil.scrollToElement(privacyBtn); //With Selenium Action
+        //JsUtil.scrollToFindElement(privacyBtn); //With Javascript
     }
 
     public void clickPrivacyBtn(){

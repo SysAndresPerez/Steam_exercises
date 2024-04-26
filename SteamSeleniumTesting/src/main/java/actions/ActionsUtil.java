@@ -9,6 +9,7 @@ public class ActionsUtil {
     private static Actions actions;
 
     public static  Actions getActions(){
+
         if(actions == null){
             actions = new Actions(Driver.getDriver());
         }

@@ -1,32 +1,45 @@
 package pages;
 
 import actions.ActionsUtil;
-import elements.Button;
+import driver.Driver;
+import elements.Label;
 import elements.TheUniqueElement;
 import org.openqa.selenium.By;
-import waits.Waits;
+import org.openqa.selenium.WebElement;
+import utils.JsUtil;
+
+import java.util.List;
 
 public class PrivacyPage extends BaseForm {
     //The Unique Element or a Reference
     public PrivacyPage(){
-        super(new TheUniqueElement(By.id("store_nav_area")));
+        super(new TheUniqueElement(By.id("pageTitle")));
     }
 
     //Locators
-    private final Button secondTabBar = new Button(By.xpath("noteworthy_tab"));
-    private final Button mostPlayedBtn = new Button(By.xpath("//*[contains(@id, 'noteworthy_flyout')]/div/a[2]")); // --> You can use this path only change the Spanish to English //a[normalize-space()='Los más jugados']
-    private final Button newsTabBar = new Button(By.xpath(("//*[@id='store_nav_area']/div[2]/div/a[2]/span")));
+    private final List<WebElement> allLanguages = Driver.getDriver().findElements(By.id("languages"));
+    private final Label signature202X = new Label(By.xpath("//*[@id=\"newsColumn\"]/i[3]"));
 
     //Methods
-    public void mouseHoverSecondTab(){
-        ActionsUtil.hoverMouse(secondTabBar);
+    public void changeThePrivacyPolicyLanguage(){
+        for(WebElement language : allLanguages){
+            //String href = language.getAttribute("href");
+            allLanguages.getFirst().click();
+            allLanguages.get(1).click();
+            allLanguages.get(2).click();
+            allLanguages.get(3).click();
+            allLanguages.get(4).click();
+            allLanguages.get(5).click();
+            allLanguages.get(6).click();
+        }
     }
 
-    public void clickMostPlayed(){
-        Waits.waitToBeClickable(mostPlayedBtn).click();
+    public void scrollToFindSignature202X(){
+        ActionsUtil.scrollToElement(signature202X); //With Selenium Action
+        //JsUtil.scrollToFindElement(signature202X); //With Javascript
     }
 
-    public void clickNewsTabBar(){
-        Waits.waitToBeClickable(newsTabBar).click();
+    public boolean isSignature202XDisplayed(){
+        return signature202X.isDisplayed();
     }
 }
