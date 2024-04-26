@@ -15,7 +15,9 @@ public class ActionsUtil {
         return actions;
     }
     public static void hoverMouse(BaseElement element){
-        getActions().moveToElement(element.getElement()).perform();
+        getActions()
+                .moveToElement(element.getElement())
+                .perform();
     }
 
     public static void dragAndDrop(BaseElement sourceElement, BaseElement destinyElement){
@@ -23,6 +25,12 @@ public class ActionsUtil {
                 .clickAndHold(sourceElement.getElement())
                 .moveToElement(destinyElement.getElement())
                 .release()
+                .perform();
+    }
+
+    public static void scrollToElement(BaseElement element){
+        getActions()
+                .scrollToElement(element.getElement())
                 .perform();
     }
 }
